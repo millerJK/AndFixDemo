@@ -114,7 +114,6 @@ public class VersionUpdateManager {
                         showProgressDialog(new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface arg0, int arg1) {
-                                // TODO
                                 arg0.dismiss();
                                 isCancel = true;
                             }
@@ -415,7 +414,7 @@ public class VersionUpdateManager {
      * @param version2
      * @return
      */
-    public  int compareVersion(String version1, String version2) {
+    public int compareVersion(String version1, String version2) {
 
         if (TextUtils.isEmpty(version1) || TextUtils.isEmpty(version2))
             return 0;
@@ -432,7 +431,6 @@ public class VersionUpdateManager {
         }
         //如果已经分出大小，则直接返回，如果未分出大小，则再比较位数，有子版本的为大；
         diff = (diff != 0) ? diff : versionArray1.length - versionArray2.length;
-        Log.e(TAG, diff + "");
         return diff;
     }
 }
