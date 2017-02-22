@@ -105,34 +105,38 @@ public class VersionUpdateManager {
 
         Log.e(TAG, "start task");
 
-        if (mVersionInfo != null) {   //进行版本升级完毕之后需要再次验证是否需要进行补丁的升级
-            if (isAppUpdate = isAppUpdate(mVersionInfo)) {
-                showVersionUpdateDialog(new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        // TODO Auto-generated
-                        showProgressDialog(new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface arg0, int arg1) {
-                                arg0.dismiss();
-                                isCancel = true;
-                            }
-                        });
-                    }
-                }, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        arg0.dismiss();
-                    }
-                });
-                //reset sharePreference patch version code
-                setPatchVersionCode("0.0");
-            } else if (isPatchUpdate(mVersionInfo)) { //只有在app不需要进行版本升级的时候才会检查补丁版本
-                // TODO: 2017/2/15  patch download
-                new Thread(downApkRunnable).start();
-            }
+        if (mVersionInfo != null) {
+            return;
+        }
+
+        //只有在app不需要进行版本升级的时候才会检查补丁版本
+        if (isAppUpdate = isAppUpdate(mVersionInfo)) {
+            showVersionUpdateDialog(new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface arg0, int arg1) {
+                    // TODO Auto-generated
+                    showProgressDialog(new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            arg0.dismiss();
+                            isCancel = true;
+                        }
+                    });
+                }
+            }, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface arg0, int arg1) {
+                    arg0.dismiss();
+                }
+            });
+            //reset sharePreference patch version code
+            setPatchVersionCode("0.0");
+        } else if (isPatchUpdate(mVersionInfo)) {
+            // TODO: 2017/2/15  patch download
+            new Thread(downApkRunnable).start();
         }
     }
+
 
     /**
      * whether a app version upgrade is required

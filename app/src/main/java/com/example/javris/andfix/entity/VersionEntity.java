@@ -2,12 +2,12 @@ package com.example.javris.andfix.entity;
 
 public class VersionEntity {
 
-    public String app_url;
-    public String patch_url;
-    public String version_code;
-    public String version_patch;
-    public String remark;
-    public String version_type;
+    public String app_url; //app 下载地址
+    public String patch_url; // 补丁包下载地址
+    public String version_code; //开发最新app版本号
+    public String version_patch; //最新补丁包版本号
+    public String remark;  //更新提示内容
+    public String version_type; //1.强制更新 2.及时更新 3.不进行更新
 
     public VersionEntity() {
     }

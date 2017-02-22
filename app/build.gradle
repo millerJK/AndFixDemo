@@ -6,7 +6,7 @@ android {
         config {
             keyAlias 'testres'
             keyPassword 'testres'
-            storeFile file('D:/release.keystore')
+            storeFile file('./keystore/release.keystore')
             storePassword 'testres'
         }
     }
