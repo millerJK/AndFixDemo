@@ -29,7 +29,7 @@ import static com.example.javris.andfix.util.VersionUpdateManager.MESSAGE_PATCH_
  */
 public class MainActivity extends AppCompatActivity {
 
-    public static final String BASE_URL = "http://172.21.238.1:8080";
+    public static final String BASE_URL = "http://172.27.35.1:8080";//change you ip here
     private TextView mTextView;
     private Button mBtn;
     private VersionUpdateManager mVersionUpdateManager;
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newTest();
+                test();
             }
         });
     }
@@ -113,12 +113,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void test() {
-        int a = 1;
-        Toast.makeText(this, "this is a test", Toast.LENGTH_SHORT).show();
-    }
-
-    public void newTest() {
-        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "this is origin bug apk", Toast.LENGTH_SHORT).show();
     }
 
     @Override

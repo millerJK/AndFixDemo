@@ -16,7 +16,7 @@
 #   public *;
 #}
 
--applymapping mapping.txt
+#-applymapping mapping.txt
 
 -optimizationpasses 5
 -dontusemixedcaseclassnames
@@ -24,7 +24,7 @@
 -dontskipnonpubliclibraryclassmembers
 -dontpreverify
 -verbose
-#-printmapping proguardMapping.txt
+-printmapping proguardMapping.txt
 -optimizations !code/simplification/cast,!field/*,!class/merging/*
 -keepattributes *Annotation*,InnerClasses
 -keepattributes Signature

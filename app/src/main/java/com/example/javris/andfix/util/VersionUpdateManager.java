@@ -105,7 +105,7 @@ public class VersionUpdateManager {
 
         Log.e(TAG, "start task");
 
-        if (mVersionInfo != null) {
+        if (mVersionInfo == null) {
             return;
         }
 
